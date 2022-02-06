@@ -1,7 +1,7 @@
 //import puppeteer 
 const puppeteer=require('puppeteer');
-const email='Akshaygrade05@gmail.com';
-const password='Agradee';
+const email='-----@gmail.com';
+const password='----';
 const codeObj=require('./code');
 //let ctrlkey=process.platform==='darwin'?'Meta':"Control";
 
