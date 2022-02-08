@@ -1,7 +1,7 @@
 //import puppeteer 
 const puppeteer=require('puppeteer');
-const email='-----@gmail.com';
-const password='----';
+const email='xyz@gmail.com';
+const password='Ag';
 const codeObj=require('./code');
 //let ctrlkey=process.platform==='darwin'?'Meta':"Control";
 
@@ -72,16 +72,16 @@ function questionsolver(page,question,answer){
         //task here question come and click jisey body 
         let questionclickedPromise=question.click();
          questionclickedPromise.then(function(){
-             let editorPromise=waitAndclick('.monaco-editor.no-user-select.mac.vs',page);
+             let editorPromise=waitAndclick('.monaco-editor.no-user-select.vs',page);
              return editorPromise;
 
 
          }).then(function(){
              let customInput = waitAndclick('.checkbox-input',page);
              return customInput;
-         }).then(function(){
-             //focus on text box
-                 return page.waitForSelector('textarea.custominput',page);             
+        //  }).then(function(){
+        //      //focus on text box
+        //          return page.waitForSelector('textarea.custominput',page);             
          }).then(function(){
              return page.type('textarea.custominput',answer,{delay:10});
 
@@ -96,14 +96,14 @@ function questionsolver(page,question,answer){
              let Xispressed=page.keyboard.press('X');
              return Xispressed;
          }).then(function(){
-            let CtrlisUnpressed=page.keyboard.up(ctrlkey);
+            let CtrlisUnpressed=page.keyboard.up('Meta');
             return CtrlisUnpressed;
         }).then(function(){
-            let mainEditorpress=waitAndclick('.monaco-editor.no-user-select.mac.vs',page);
+            let mainEditorpress=waitAndclick('.monaco-editor.no-user-select.vs',page);
             return mainEditorpress
         }).then(function(){
            //cut from input text aarea
-           let ctrlispressed=page.keyboard.down(ctrlkey);
+           let ctrlispressed=page.keyboard.down('Meta');
            return ctrlispressed;
        }).then(function(){
            let Aispressed=page.keyboard.press('A');
@@ -112,7 +112,7 @@ function questionsolver(page,question,answer){
            let Vispressed=page.keyboard.press('V');
            return Vispressed;
        }).then(function(){
-           let CtrlisUnpressed=page.keyboard.up(ctrlkey);
+           let CtrlisUnpressed=page.keyboard.up('Meta');
            return CtrlisUnpressed;
        }).then(function(){
            return page.click('.hr-monaco__run-code');
